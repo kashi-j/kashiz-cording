@@ -1,2 +1,2 @@
 # kashiz-cording
-this is my portfoliosite
+Web制作コーディング代行のコーポレートサイトです。
