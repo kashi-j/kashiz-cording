@@ -1,0 +1,57 @@
+/* ---------------------------- */
+/* General
+/* ---------------------------- */
+html{
+  font-size: 62.5%;
+  @include underSP{
+    font-size:50%;
+  }
+}
+
+body{
+  font-size: 1.6rem;
+  @include BaseFont;
+  color:cl(text);
+  margin:0;
+  &.overflow-hidden{
+    overflow: hidden;
+  }
+}
+
+li{
+  list-style: none;
+}
+
+a{
+  text-decoration: none;
+  color:cl(text);
+  &:visited{
+    color:cl(text);
+  }
+}
+
+img{
+  vertical-align: bottom;
+  width:100%;
+}
+
+svg{
+  vertical-align: bottom;
+}
+
+button{
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+.inner{
+  width:100%;
+  max-width:1000px;
+  // box-sizing: border-box;
+  margin:0 auto;
+}
+
+.uppercase-letter{
+  text-transform:capitalize;
+}

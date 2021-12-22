@@ -1,0 +1,104 @@
+/* ---------------------------- */
+/* Base
+/* ---------------------------- */
+
+// COLORS
+// @inlcude cl(black);
+//--------------------------------------------------
+
+$colors: (
+	white: #fff,
+	black: #000,
+	text: #707070,
+	main-color:#66D1A8,
+	header-nav-bg:#464545d8,
+	accent-color:#67A5FF,
+	section-bg:#D5EEFA,
+	price-lp:#CCFAFF,
+	price-web:#D0FFED,
+	price-wp:#EDFFCC,
+	work-active:#66D1A8,
+	work-active1:#37916e,
+	work-selected:#008f58,
+	work-tab:#dbdbdb,
+	work-frame:#BFBFBF,
+	work-slide-bg:#000000e0,
+	flow-arrow:#464545,
+	flow-first:#e8cef7,
+	flow-second:#67A5FF,
+	flow-third:#7fddb9,
+	flow-fourth:#E8C44C,
+	header-accent-color:#E8C44C,
+);
+
+
+
+@function cl($key) {
+	@return map-get($colors, $key);
+}
+
+// FONT
+// @inlcude TimesNewRoman;
+//--------------------------------------------------
+
+@mixin BaseFont {
+	font-family: 'Nunito', 'Helvetica', 'IBM Plex Sans', 'Arial',sans-serif;
+}
+@mixin Nunito{
+	font-family: 'Nunito', sans-serif;
+}
+@mixin IBM{
+	font-family: 'IBM Plex Sans', sans-serif;
+}
+@mixin Helvetica{
+	font-family: 'Helvetica', sans-serif;
+}
+
+// FONTSIZE
+// @include fz_vwpc(px数値(単位なし))
+//--------------------------------------------------
+@function get_vwpc($size, $viewport: 1440) {
+	$rate: 100 / $viewport;
+	@return $rate * $size *1vw;
+}
+
+@mixin fz_vwpc($font_size: 10) {
+  font-size: $font_size * 1px;
+  font-size: get_vwpc($font_size);
+}
+
+// RESPONSIVE
+// @include overTab
+//--------------------------------------------------
+@mixin underSP {
+  @media print,screen and (max-width: 480px) {
+		@content;
+	}
+}
+
+@mixin underTab {
+  @media print,screen and (max-width: 768px) {
+		@content;
+	}
+}
+
+.sp_only {
+	display: none;
+	@include underSP {
+		display: block;
+	}
+}
+
+.tab_only {
+	display: none;
+	@include underTab {
+		display: block;
+	}
+}
+
+.pc_only {
+	display: block;
+	@include underTab {
+		display: none;
+	}
+}

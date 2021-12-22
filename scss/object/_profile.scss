@@ -1,0 +1,167 @@
+#about{
+  background: url("../../img/fv_bg.png") center center / cover;
+  background-blend-mode: lighten;
+  background-color: rgba(255,255,255,.98);
+  padding-top: calc(50px + 120px);
+  @include underTab{
+    padding-top: calc(50px + 60px);
+  }
+  .inner{
+    .sub-section{
+      padding: 80px 25px;
+      @include underTab{
+        padding: 80px 50px;
+        @include underSP{
+          padding: 50px 25px;
+        }
+      }
+      .cmn-title{
+        text-align: left;
+        display: inline-block;
+        padding-bottom: 60px;
+        @include underSP{
+          padding-bottom: 30px;
+        }
+      }
+      .cmn-sub{
+        display: inline-block;
+        line-height: calc(28/16);
+        vertical-align: top;
+        &::after{
+          content:"";
+          display: none;
+        }
+      }
+    }
+    #profile{
+      .profile-content{
+        display: flex;
+        justify-content: space-between;
+        @include vs(padding-left,375px,0px,1440px,50px);
+        @include vs(padding-right,375px,0px,1440px,50px);
+        @include underTab{
+          flex-direction: column;
+          justify-content: space-between;
+
+        }
+        .profile-image{
+          width: 200px;
+          height:200px;
+          border: 1px solid cl(black);
+          @include underTab{
+            width: 150px;
+            height:150px;
+          }
+          img{
+            object-fit: cover;
+            height: 100%;
+          }
+        }
+        .profile-desc{
+          width:calc((550/1000)*100%);
+          min-width: 350px;
+          @include vs(font-size,375px,12px,1440px,16px);
+          @include underTab{
+            min-width: unset;
+            width: 100%;
+            padding-top: 30px;
+          }
+          dl{
+            overflow: hidden;
+            line-height: 1.5;
+            width: 100%;
+            dt{
+              float:left;
+              width:30%;
+              white-space: nowrap;
+              &:first-of-type{
+                width: 0%;
+              }
+            }
+            dd{
+              margin-left:25%;
+              width: 75%;
+              &:first-of-type{
+                width: 100%;
+                margin-left: unset;
+              }
+            }
+            dt,dd{
+              &:not(:last-of-type){
+                padding-bottom: 15px;
+              }
+            }
+          }
+        }
+      }
+    }
+    #career{
+      .career-content{
+        display: flex;
+        @include underTab{
+          flex-wrap: wrap;
+        }
+        .career-desc{
+          width: calc((550/1000) *100%);
+          min-width: 365px;
+          @include vs(font-size,375px,12px,1440px,16px);
+          padding-left:calc((100/1000)*100%);
+          @include vs(padding-left,375px,0px,1440px,100px);
+          @include underSP{
+            min-width: 350px;
+          }
+          .career-item{
+            display: flex;
+            flex-direction: row;
+            dt{
+              width: 25%;
+              height: 1.6rem;
+              position: relative;
+              &:first-of-type{
+                margin-top: 30px;
+              }
+              &::after{
+                position: absolute;
+                top:50%;
+                right:0;
+                transform: translateX(50%) translateY(-50%);
+                content:"";
+                display: block;
+                width:10px;
+                height: 10px;
+                border-radius: 50%;
+                background-color: grey;
+              }
+            }
+            dd{
+              border-left: 1px solid grey;
+              padding-left:30px;
+              @include vs(padding-bottom,768px,25px,1440px,50px);
+              &:first-of-type{
+                padding-top: 30px;
+              }
+            }
+            dt,dd{
+              line-height: 1.5;
+            }
+          }
+        }
+        .career-image-pc{
+          @include vs(width,768px,350px,1440px,500px);
+        }
+        .career-image-tab{
+          @include underTab{
+            flex-grow: 1;
+            padding-top: 30px;
+            width: 40%;
+            display: flex;
+            justify-content: center;
+            .career-image1,.career-image2{
+              max-width: 250px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

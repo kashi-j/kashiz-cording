@@ -1,0 +1,436 @@
+/* ---------------------------- */
+/* WORK
+/* ---------------------------- */
+#works{
+  .inner{
+    .work-area{
+      padding: 50px 20px 0px;
+      @include underTab{
+        padding: 30px 20px;
+      }
+      .work-item{
+        width: calc((100% - 45px - 24px)/4);
+        height: 40px;
+        border-top: 3px solid cl(work-frame);
+        border-left: 3px solid cl(work-frame);
+        border-right: 3px solid cl(work-frame);
+        border-radius: 10px 10px 0 0;
+        background-color:cl(work-tab);
+        line-height: 40px;
+        font-size: 2rem;
+        text-align: center;
+        display: block;
+        float: left;
+        text-align: center;
+        font-weight: bold;
+        transition: all 0.2s ease;
+        color: cl(text);
+        box-shadow: 4px 3px 6px rgba(0,0,0,.3 );
+        @include underTab{
+        width: calc((100% - 24px - 24px)/4);
+        @include vs(font-size,375px,10px,768px,20px);
+        }
+        &:hover{
+          background-color: cl(white);
+          color:cl(work-active);
+          border-top: 3px solid cl(work-active);
+          border-left: 3px solid cl(work-active);
+          border-right: 3px solid cl(work-active);
+        }
+        &:not(:first-of-type){
+          margin-left:15px;
+          @include underTab{
+            margin-left:8px;
+          }
+        }
+      }
+      input:checked + .work-item{
+        background-color: cl(work-active);
+        color: #fff;
+        border-top: 3px solid cl(work-active);
+        border-left: 3px solid cl(work-active);
+        border-right: 3px solid cl(work-active);
+      }
+      input[name="work-item"]{
+        display: none;
+        // visibility: hidden;
+      }
+      .work-conts{
+        position: relative;
+        display: none;
+        box-shadow: 4px 3px 6px rgba(0,0,0,.3 );
+        // display: hidden;
+        @include vs(padding,375px,20px,768px,40px);
+        clear: both;
+        overflow: hidden;
+        border-top: 10px solid cl(main-color);
+        background-color: #fff;
+        .work-img-slider{
+          border:1px solid cl(text);
+          &::after{
+            content:"クリックするとポップアップ表示します";
+            position: absolute;
+            right:15px;
+            bottom:15px;
+            padding: 10px;
+            z-index: 2;
+            display:inline-block;
+            color:#fff;
+            background-color: cl(black);
+            opacity:.5;
+            @include underTab{
+              @include vs(font-size,375px,10px,768px,16px);
+              right:0px;
+              bottom:0px;
+            }
+          }
+        }
+        .work-desc{
+          margin-top:30px;
+          @include underTab{
+            @include vs(margin-top,375px,70px,768px,90px)
+          }
+          dl{
+            width: 100%;
+            overflow: hidden;
+            line-height: 2;
+            @include vs(font-size,375px,13px,768px,16px);
+            dt{
+              width:25%;
+              float: left;
+              white-space: nowrap;
+            }
+            dd{
+              margin-left:25%;
+              width: 75%;
+            }
+            dt,dd{
+              // padding-left: 5%;
+              &:not(:last-of-type){
+                padding-bottom: 15px;
+              }
+            }
+          }
+        }
+        .btn-wrapper{
+          text-align: right;
+          padding-top: 10px;
+          @include underTab{
+            text-align: center;
+            padding-top: 20px;
+          }
+          .work-btn{
+            position: relative;
+            border-radius: 3px;
+            background-color: cl(work-active);
+          }
+        }
+      }
+      #portfolio:checked ~ #portfolio-conts,
+      #gokurakutei:checked ~ #gokurakutei-conts,
+      #cresta:checked ~ #cresta-conts,
+      #digsmile:checked ~ #digsmile-conts{
+        display: block;
+        // visibility: visible;
+      }
+    }
+  }
+}
+
+/* ---------------------------- */
+/* SLICK 共通
+/* ---------------------------- */
+.work-img-slider{
+  position: relative;
+  // スライド
+  .slick-list{
+    .slick-slide{
+      top:0;
+      // height:380px;
+      width: 100%;
+      overflow: hidden;
+      background-color: cl(work-slide-bg);
+      @include vs(height,375px,230px,768px,380px);
+      a{
+        img{
+          width: auto;
+          height: 100%;
+          margin: 0 auto;
+          max-width: 100%;
+        }
+      }
+      &.img_01{
+        a{
+          img{
+            object-fit: cover;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+  // ドット
+  .slick-dots{
+  position: absolute;
+  top:0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width:100px;
+  text-align: unset;
+  bottom: initial;
+  @include underTab{
+    flex-direction: row;
+    width:100%;
+    top:100%;
+    justify-content: left;
+  }
+    li{
+      @include vs(width,375px,45px,768px,60px);
+      @include vs(height,375px,45px,768px,60px);
+      @include vs(margin,375px,10px,768px,15px);
+      button{
+        width:100%!important;
+        height:100%!important;
+        position: relative;
+        &::before{
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%,-50%);
+          content: '';
+          height:100%;
+          width: 100%;
+          border: 2px solid cl(text);
+          border-radius: 10px;
+          box-shadow: 0px 3px 6px rgba(0,0,0,0.3);
+          opacity: 1;
+        }
+      }
+      &.slick-active{
+        button{
+          &::before{
+            border:5px solid cl(work-selected);
+          }
+        }
+      }
+    }
+  }
+}
+
+/* ---------------------------- */
+/* SLICK > ドット画像
+/* ---------------------------- */
+#portfolio-conts{
+  .slick-dots{
+    li{
+      &:nth-of-type(1){
+        button{
+          &::before{
+            background: url("../../img/work_kashicoding1_pc.jpg")  center no-repeat;
+            background-size: cover;
+          }
+        }
+      }
+      &:nth-of-type(2){
+        button{
+          &::before{
+            background: url("../../img/work_kashicoding2_min.jpg") center no-repeat;
+            background-size:cover;
+          }
+        }
+      }
+      &:nth-of-type(3){
+        button{
+          &::before{
+            background: url("../../img/work_kashicoding3_min.png") center no-repeat;
+            background-size: cover;
+          }
+        }
+      }
+      &:nth-of-type(4){
+        button{
+          &::before{
+            background: url("../../img/work_kashicoding4_min.png") center no-repeat;
+            background-size: cover;
+          }
+        }
+      }
+    }
+  }
+}
+
+#gokurakutei-conts{
+  .slick-dots{
+    li{
+      &:nth-of-type(1){
+        button{
+          &::before{
+            background: url("../../img/work_gokurakutei1_pc.jpg")  center no-repeat;
+            background-size: cover;
+          }
+        }
+      }
+      &:nth-of-type(2){
+        button{
+          &::before{
+            background: url("../../img/work_gokurakutei2_min.png") center no-repeat;
+            background-size:cover;
+          }
+        }
+      }
+      &:nth-of-type(3){
+        button{
+          &::before{
+            background: url("../../img/work_gokurakutei3_min.png") center no-repeat;
+            background-size: cover;
+          }
+        }
+      }
+      &:nth-of-type(4){
+        button{
+          &::before{
+            background: url("../../img/work_gokurakutei4_min.png") center no-repeat;
+            background-size: cover;
+          }
+        }
+      }
+    }
+  }
+}
+
+#cresta-conts{
+  .slick-dots{
+    li{
+      &:nth-of-type(1){
+        button{
+          &::before{
+            background: url("../../img/work_crestadesign1_pc.jpg")  center no-repeat;
+            background-size: cover;
+          }
+        }
+      }
+      &:nth-of-type(2){
+        button{
+          &::before{
+            background: url("../../img/work_crestadesign2_min.png") center no-repeat;
+            background-size:cover;
+          }
+        }
+      }
+      &:nth-of-type(3){
+        button{
+          &::before{
+            background: url("../../img/work_crestadesign3_min.png") center no-repeat;
+            background-size: cover;
+          }
+        }
+      }
+    }
+  }
+}
+
+#digsmile-conts{
+  .slick-dots{
+    li{
+      &:nth-of-type(1){
+        button{
+          &::before{
+            background: url("../../img/work_digsmile1_tab.jpg")  center no-repeat;
+            background-size: cover;
+          }
+        }
+      }
+      &:nth-of-type(2){
+        button{
+          &::before{
+            background: url("../../img/work_digsmile2_min.png") center no-repeat;
+            background-size:cover;
+          }
+        }
+      }
+      &:nth-of-type(3){
+        button{
+          &::before{
+            background: url("../../img/work_digsmile3_min.png") center no-repeat;
+            background-size: cover;
+          }
+        }
+      }
+      &:nth-of-type(4){
+        button{
+          &::before{
+            background: url("../../img/work_digsmile4_min.png") center no-repeat;
+            background-size: cover;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* ---------------------------- */
+/* ligntbox2
+/* ---------------------------- */
+#lightboxOverlay{
+  max-width: 100vw;
+}
+#lightbox{
+  .lb-outerContainer{
+    width: 85vw !important;
+    height: auto !important;
+    max-height: 80vh;
+    overflow: scroll !important;
+    background-color: transparent;
+    .lb-container{
+      overflow: scroll !important;
+      .lb-image{
+        width: 100% !important;
+        height: auto !important;
+        border: unset;
+        border-radius: unset;
+      }
+      .lb-nav{
+        position: fixed;
+        height: unset;
+        .lb-prev,.lb-next{
+          position: absolute;
+          top:50vh;
+          height: unset;
+          width: 5%;
+          opacity: 0.5;
+          background-image: unset;
+          content: url("../../img/arrow_white.svg") !important;
+          @include underSP{
+            width: 10%;
+          }
+          &:hover{
+            opacity: 1;
+          }
+        }
+        .lb-prev{
+          transform: translateY(-50%) rotate(180deg);
+          left:10px;
+        }
+        .lb-next{
+          transform: translateY(-50%);
+          right:10px;
+        }
+      }
+    }
+  }
+  .lb-dataContainer {
+    position: absolute;
+    top: -20px;
+    right: 1.5%;
+    a{
+      &.lb-close{
+      width: 50px;
+      height: 50px;
+      background-size: cover;
+      background-image: url("../../img/close.svg");
+      }
+    }
+  }
+}

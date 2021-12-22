@@ -1,0 +1,197 @@
+/* ---------------------------- */
+/* header
+/* ---------------------------- */
+.header{
+  // display: none;
+  .header-fixed{
+    position: fixed;
+    z-index: 3;
+    width: 100%;
+    .header-wrapper{
+      position: relative;
+      box-shadow: 0px 3px 6px cl(text);
+      .header-logo{
+        background-color: cl(white);
+        width: 100%;
+        padding:15px 0 15px calc((200/1440)*100%);
+        font-size: 2rem;
+      }
+      .burger-container{
+        position:absolute;
+        top:50%;
+        right:5%;
+        transform: translateY(-50%);
+        z-index: 3;
+        display: none;
+        @include underTab{
+          display: block;
+        }
+        .burger-btn{
+          position: relative;
+          display: block;
+          width:25px;
+          height:20px;
+          padding:0;
+          transition: all .5s ease-in-out;
+          .bar{
+            position: absolute;
+            width:100%;
+            height: 3px;
+            display: block;
+            background-color: cl(black);
+            transform: translateX(4px);
+            border-radius: 10px;
+            transition: all .3s ease-in-out;
+            &.bar-top{
+              top:0;
+            }
+            &.bar-middle{
+              // position:absolute;
+              top:0;
+              bottom:0;
+              margin: auto;
+            }
+            &.bar-bottom{
+              bottom:0;
+            }
+          }
+          &.-active{
+            .bar{
+              top: 0;
+              bottom: 0;
+              margin: auto;
+              transition: transform 0.3s ease;
+              background-color: cl(white);
+              &:first-child {
+                transform: rotate(45deg);
+              }
+              &:nth-child(2) {
+                  transform: rotate(45deg);
+              }
+              &:last-child {
+                  transform: rotate(-45deg);
+              }
+            }
+          }
+        }
+      }
+      .nav{
+        position:absolute;
+        right:5%;
+        top:50%;
+        transform: translateY(-50%);
+        width: 55%;
+        @include underTab{
+          width: 30vw;
+          height: 100vh;
+          background-color: cl(header-nav-bg);
+          transition: all .3s ease-in-out;
+          top:0;
+          left: 100%;
+          transform: unset;
+          &.-active{
+            left: 70%;
+            @include underSP{
+              left: 0;
+            }
+          }
+          @include underSP{
+            width: 100vw;
+          }
+        }
+        .nav-menu{
+          @include underTab{
+            position: relative;
+            height: 100%;
+          }
+          .nav-list{
+            display: flex;
+            justify-content: space-between;
+            @include underTab{
+              position: absolute;
+              left: 50%;
+              top:50%;
+              transform: translate(-50%,-50%);
+              flex-direction: column;
+            }
+            .nav-item{
+              white-space: nowrap;
+              @include vs(font-size,768px,12px,1440px,16px);
+              @include underTab{
+                margin-bottom: 10vh;
+                text-align: center;
+                &:nth-child(1) a::before{
+                  content: "service";
+                }
+                &:nth-child(2) a::before{
+                  content: "about";
+                }
+                &:nth-child(3) a::before{
+                  content: "price";
+                }
+                &:nth-child(4) a::before{
+                  content: "flow";
+                }
+                &:nth-child(5) a::before{
+                  content: "contact";
+                }
+              }
+              a{
+                @include underTab{
+                  font-size: 0px;
+                  color:cl(white);
+                  width:100%;
+                  &::before{
+                    font-size: 20px;
+                    color:cl(white);
+                    vertical-align: middle;
+                    text-transform:capitalize;
+                  }
+                }
+              }
+              &:not(:last-of-type){
+                a{
+                  position: relative;
+                  text-decoration: none;
+                  color:cl(text);
+                  &::after{
+                    position: absolute;
+                    content: "";
+                    bottom: -6px;
+                    left: 0;
+                    width: 100%;
+                    height: 2px;
+                    background: cl(black);
+                    transform: scale(0, 1);
+                    transform-origin: center top;
+                    transition: transform .5s;
+                    @include underTab{
+                      background: cl(white);
+                      bottom: -15px;
+                    }
+                  }
+                  &:hover{
+                    &::after{
+                      transform: scale(1, 1);
+                    }
+                  }
+                }
+              }
+              &:last-of-type{
+                a{
+                  padding:10px 15px;
+                  background-color: cl(header-accent-color);
+                  border-radius: 10px;
+                  color:cl(white);
+                  @include underTab{
+                    background-color: transparent;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

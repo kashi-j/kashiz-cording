@@ -1,0 +1,221 @@
+/* ---------------------------- */
+/* Price
+/* ---------------------------- */
+#price{
+  .inner{
+    .price-conts{
+      padding:50px 20px 0px;
+      @include underTab{
+        padding: 30px 20px;
+      }
+      // LP & Webサイト
+      .price-upper-list{
+        display: flex;
+        justify-content: space-between;
+        @include underTab{
+          flex-direction: column;
+        }
+      }
+      // 共通（LP & Webサイト & Wordpress）
+      .price-item{
+        @include vs(width,768px,350px,975px,450px);
+        padding: 30px 15px;
+        box-shadow: 0px 3px 6px rgba(0,0,0,0.3);
+        border: 1px solid cl(text);
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        align-content: flex-start;
+        box-sizing: border-box;
+        @include underTab{
+          width: 100%;
+          @include vs(padding,375px,15px,768px,30px);
+          &:not(:last-of-type){
+            margin-bottom: 30px;
+          }
+          &:nth-child(2){
+            .price-desc{
+              flex-direction: row-reverse;
+            }
+          }
+        }
+        .price-name{
+          font-size: 2.4rem;
+          padding-bottom: 20px;
+          white-space: nowrap;
+          @include underTab{
+            font-size: 2rem;
+          }
+        }
+        .price-desc{
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          width: 100%;
+          align-items: top;
+          @include underTab{
+            flex-direction: row;
+            align-items: center;
+          }
+          .price-text{
+            flex-grow: 1;
+            width:224px;
+            line-height: 2;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            margin:0 7px;
+            @include vs(font-size,375px,14px,765px,16px);
+            @include underTab{
+              margin:0 30px;
+              @include underSP{
+                margin:0 15px;
+              }
+            }
+            h4{
+              text-align: center;
+              font-weight: bold;
+              padding:10px 0;
+            }
+          }
+          .price-img{
+            height:180px;
+            width:180px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            @include underSP{
+              height:150px;
+              width:150px;
+            }
+            &.lp-img{
+              background-color: cl(price-lp);
+              img{
+                height: 80%;
+                width: auto;
+              }
+            }
+            &.web-img{
+              background-color: cl(price-web);
+              img{
+                height: 72%;
+                width: auto;
+              }
+            }
+          }
+        }
+        .price-table{
+          width:100%;
+          padding: 30px 20px;
+          box-sizing: border-box;
+          @include underSP{
+            padding: 30px 10px;
+          }
+          dl{
+            border-bottom: 5px dotted cl(text);
+            display: flex;
+            @include vs(font-size,768px,16px,975px,18px);
+            @include underTab{
+              @include vs(font-size,375px,12px,765px,18px);
+            }
+            &:not(:first-of-type){
+            @include vs(padding-top,375px,20px,768px,30px);
+            }
+            dt{
+              line-height: calc(30/22);
+              width: 60%;
+              padding-bottom: 5px;
+              padding-left:20px;
+              @include underSP{
+                padding-left:10px;
+                // width: 65%;
+              }
+              span{
+                position: relative;
+                left:-20px;
+                display: block;
+                @include underSP{
+                  left:-10px;
+                }
+              }
+            }
+            dd{
+              line-height: calc(30/22);
+              display: flex;
+              align-items: center;
+            }
+          }
+        }
+      }
+      // Wordpress
+      .price-lower-list{
+        margin-top:30px;
+        .price-item{
+          width: 100%;
+          .price-desc{
+            @include underTab{
+              flex-direction: column;
+            }
+            .price-right{
+              width: calc(100% - 300px);
+              @include underTab{
+                width: 100%;
+                padding-top: 20px;
+              }
+              .price-text{
+                width:calc(100% - 30px);
+                p{
+                  padding-left:40px;
+                  @include underTab{
+                    padding-left:0px;
+                  }
+                }
+              }
+            }
+            .price-img{
+              height:300px;
+              width:300px;
+              @include underTab{
+                height:200px;
+                width:200px;
+                @include underSP{
+                  height:150px;
+                  width:150px;
+                }
+              }
+              &.wp-img{
+                background-color: cl(price-wp);
+                img{
+                  height: 45%;
+                  width: auto;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .price-bottom{
+      padding-top: 15px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      .price-bottom-text{
+        display: inline-block;
+        line-height: 1.5;
+        @include vs(font-size,768px,14px,1000px,18px);
+        text-indent: -1em;
+        padding-left: 1em;
+        @include underTab{
+          @include vs(font-size,375px,10px,768px,14px);
+        }
+        }
+      a{
+        text-decoration: underline;
+      }
+    }
+  }
+}

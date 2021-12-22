@@ -1,0 +1,144 @@
+/* ---------------------------- */
+/* FV
+/* ---------------------------- */
+.fv{
+  padding-top:50px;
+  position: relative;
+  .fv-wrapper{
+    // display: none;
+    position:absolute;
+    z-index: 1;
+    background: url("../../img/fv_bg.png") center center / cover;
+    opacity: 0.05;
+    // 全体ー（ヘッダー＋ボトム）
+    height: calc(100vh - (50px + 40px));
+    width:100%;
+    @include underTab{
+      height: calc(100vh - (50px + 80px));
+      @include underSP{
+        height: calc(50vh + 150px + 63px);
+      }
+    }
+  }
+  .fv-upper{
+    position: relative;
+    height: 30vh;
+    z-index: 0;
+    @include underTab{
+      height: 25vh;
+    }
+    img{
+      position: absolute;
+      top:50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      width: auto;
+      height: 85%;
+      max-width: 100%;
+      object-fit: cover;
+    }
+  }
+  .fv-content{
+    background-color: cl(main-color);
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // 全体-(画像上下＋ヘッダー＋ボトム＋ボタン)
+    height:calc(100vh - (60vh + 50px + 40px + 66px));
+    padding:30px;
+    box-sizing: border-box;
+    @include underTab{
+      padding:15px;
+      flex-direction: column;
+      margin-left: 0;
+      height:calc(100vh - (50vh + 50px + 80px + 66px));
+      @include underSP{
+        height:150px
+      }
+    }
+    .fv-copy{
+      color:cl(white);
+      @include vs(font-size,375px,16px,975px,28px);
+      line-height: 1.5;
+      @include underTab{
+        padding-bottom: 10px;
+        text-align: center;
+      }
+    }
+    .fv-contact-btn{
+      color:white;
+      padding: 20px;
+      margin-left: 20px;
+      box-shadow: 0px 3px 6px rgba(0,0,0,0.3);
+      line-height: none;
+      @include underTab{
+        padding: 10px;
+      }
+    }
+  }
+  .fv-lower{
+    position: relative;
+    height: 30vh;
+    @include underTab{
+      height: 25vh;
+    }
+    img{
+      position: absolute;
+      top:50%;
+      left:50%;
+      transform: translateX(-50%) translateY(-50%);
+      width: auto;
+      height: 91%;
+      max-width: 100%;
+      object-fit: cover;
+    }
+  }
+  .scroll-btn{
+    position:relative;
+    z-index: 2;
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: 20px;
+    .next-scroll-btn{
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      span{
+        position:relative;
+        top:-10px;
+      }
+      svg{
+        display: block;
+        height:30px;
+        width: 30px;
+        transform: rotate(90deg);
+        fill:currentColor;
+      }
+    }
+
+  }
+  .fv-bottom{
+    height: 40px;
+    bottom: 0;
+    width: 100%;
+    background-color: cl(black);
+    opacity:0.35;
+    font-size: 14px;
+    white-space: nowrap;
+    line-height: calc(40/14);
+    color:cl(white);
+    text-align: center;
+    vertical-align: middle;
+    @include underTab{
+      height:80px;
+      @include vs(font-size,375px,10px,768px,14px);
+      line-height: 40px;
+    }
+    a{
+      color: white;
+      text-decoration: underline;
+    }
+  }
+}
